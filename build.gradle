@@ -11,14 +11,16 @@ dependencies {
   testCompile 'junit:junit:4.12'
 }
 
-run {    
-    systemProperties System.getProperties()
-
-    args System.getProperty("args").split()    
+run {
+	try{
+		systemProperties System.getProperties()
+		args System.getProperty("args").split()  
+	} catch (Exception e) {
+	}  
 }
 
 task sequencehelp << {
-println "Integer Sequence Project"
-println "Enter first argument either 'lazy' or 'triangle' and second argument is a postivie integer or zero. \nProgram will print out the result in the format 'Tri(n) = x' if the user selected a triangle number or 'Lazy(n) = x' if user selected lazy" 
-
+	println "Integer Sequence Project"
+	println "Enter a first argument either 'lazy' or 'triangle' and a second argument a non-negative integer."
+	println "Program will print out the result in the format 'Tri(n) = x' if the user selected triangle  or 'Lazy(n) = x' if the user selected lazy" 
 }
